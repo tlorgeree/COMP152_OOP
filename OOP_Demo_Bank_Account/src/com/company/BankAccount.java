@@ -7,7 +7,7 @@ public class BankAccount {
         balance += amount;
     }
     public void addInterest(){
-        balance *= interestRate;
+        balance *= 1 + interestRate;
     }
     public boolean withdraw(double amount){
         if (amount <= balance)
@@ -20,5 +20,14 @@ public class BankAccount {
     public double checkBalance()
     {
         return balance;
+    }
+
+    //Constructors
+    public BankAccount(){
+        interestRate = 0.02f;
+    }
+    public BankAccount(double intialBalance, float initialaRate){
+        balance = intialBalance;
+        interestRate = initialaRate;
     }
 }
