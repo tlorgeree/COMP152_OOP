@@ -9,24 +9,28 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Store{
-    private ArrayList<String> Orders;
-    private ArrayList<String> Customers;
+    private ArrayList<Order> Orders;
+    private ArrayList<Customer> Customers;
     public static void main(String[] args) throws IOException {
         var currStore = new Store();
         currStore.runStore();
     }
     public void runStore(){
+
         var menu = true;
         while (menu) {
             Scanner menuSelect = new Scanner(System.in);
             System.out.println("Select from the following options:\n1. Add Customer"
             +"\n2. Select Customer\n3. Quit");
             String selection = menuSelect.nextLine();
-            switch (selection)
-            {
-                case "1": addCustomer(); break;
-                case "2": selectCustomer(); break;
-                case "3": menu = false; break;
+            switch (selection) {
+                case "1" -> addCustomer();
+                case "2" -> {
+                    var _custSelect = selectCustomer();
+                    manageCustomer(_custSelect);
+                }
+                case "3" -> menu = false;
+                default -> throw new IllegalStateException("Unexpected value: " + selection);
             }
         }
     }
@@ -37,28 +41,24 @@ public class Store{
         var customerFile = "Customers.txt";
         String all_customers = Files.readString(Paths.get(customerFile));
         String[] customerList = all_customers.split(",");
-        int _max = customerList.length;
-
-        for (var i = 0; i < _max; i++)
-        {
-            Customers.add(customerList[i]);
+        for (String s : customerList) {
+            Customers.add(new Customer(s));
         }
     }
     public void addCustomer(){
         Scanner nameSelect = new Scanner(System.in);
         System.out.println("What is the customer's name?");
         String _custName = nameSelect.nextLine();
-        var newCustomer = new Customer(_custName);
-        Customers.add(newCustomer.getName());
+        Customers.add(new Customer(_custName));
     }
-    public String selectCustomer(){
+    public Customer selectCustomer(){
         //Select a customer
         //return customer
         int _max = Customers.size();
         System.out.println("Please enter an integer from the following list of customers to select:");
         for(var i = 0; i < _max; i++)
         {
-            System.out.println(i + ". " + Customers.get(i));
+            System.out.println(i + ". " + Customers.get(i).getName());
         }
         Scanner custSelect = new Scanner(System.in);
         String _choice = custSelect.nextLine();
@@ -66,7 +66,36 @@ public class Store{
         return Customers.get(_int_choice);
 
     }
-    public void manageCustomer(String _selected_customer){
-        //Do thing
+    public void manageCustomer(Customer _selected_customer){
+        //Start menu loop
+            //add address
+            //make order
+        var menu = true;
+        while (menu) {
+            Scanner menuSelect = new Scanner(System.in);
+            System.out.println("Select from the following options:\n1. Add Addressr"
+                    + "\n2. Make Order \n3. Quit");
+            String selection = menuSelect.nextLine();
+            switch (selection) {
+                case "1":
+                    var add_menu = true;
+                    while (add_menu) {
+                        Scanner add_menuSelect = new Scanner(System.in);
+                        System.out.println("Please enter the new address:");
+                        String newAddress = add_menuSelect.nextLine();
+                        _selected_customer.addAddress(newAddress);
+                        break;
+                    }
+                case "2":
+                    selectCustomer();
+                    break;
+                case "3":
+                    menu = false;
+                    break;
+
+                default:
+                    throw new IllegalStateException("Unexpected value: " + selection);
+            }
+        }
     }
 }
