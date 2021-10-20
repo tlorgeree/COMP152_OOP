@@ -50,6 +50,7 @@ public class Store{
         System.out.println("What is the customer's name?");
         String _custName = nameSelect.nextLine();
         var newCustomer = new Customer(_custName);
+        Customers.add(newCustomer.getName());
     }
     public String selectCustomer(){
         //Do thing
