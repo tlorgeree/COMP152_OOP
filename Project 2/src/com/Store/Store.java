@@ -9,8 +9,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Store{
-    private ArrayList<Order> Orders;
-    private ArrayList<Customer> Customers;
+    private ArrayList<Order> Orders = new ArrayList<Order>();
+    private ArrayList<Customer> Customers = new ArrayList<Customer>();
     public static void main(String[] args) throws IOException {
         var currStore = new Store();
         currStore.runStore();

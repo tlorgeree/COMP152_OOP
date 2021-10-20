@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Customer{
-    private ArrayList<ShippingAddress> Addresses;
+    private ArrayList<ShippingAddress> Addresses = new ArrayList<ShippingAddress>();
     private String Name;
     private int accountID;
     private static int customerID;//global
