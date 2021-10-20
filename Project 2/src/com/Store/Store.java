@@ -13,7 +13,7 @@ public class Store{
     private ArrayList<String> Customers;
     public static void main(String[] args) throws IOException {
         var currStore = new Store();
-
+        currStore.runStore();
     }
     public void runStore(){
         var menu = true;
@@ -29,7 +29,6 @@ public class Store{
                 case "3": menu = false; break;
             }
         }
-
     }
     public void makeOrder(String _address, String _customer){
         //Do thing
@@ -53,7 +52,19 @@ public class Store{
         Customers.add(newCustomer.getName());
     }
     public String selectCustomer(){
-        //Do thing
+        //Select a customer
+        //return customer
+        int _max = Customers.size();
+        System.out.println("Please enter an integer from the following list of customers to select:");
+        for(var i = 0; i < _max; i++)
+        {
+            System.out.println(i + ". " + Customers.get(i));
+        }
+        Scanner custSelect = new Scanner(System.in);
+        String _choice = custSelect.nextLine();
+        int _int_choice = Integer.parseInt(_choice);
+        return Customers.get(_int_choice);
+
     }
     public void manageCustomer(String _selected_customer){
         //Do thing
