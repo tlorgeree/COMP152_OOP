@@ -2,14 +2,14 @@ package com.Store;
 
 public class Order{
     private String ShippingAddress;
-    private String orderedBy;
+    private Customer orderedBy;
     public String getDestination(){
-        //Do thing
+        return ShippingAddress;
     }
     public String gerOrder(){
-        //Do thing
+        return orderedBy.getName();
     }
-    public Order(String _shipAddress, String _customer){
+    public Order(String _shipAddress, Customer _customer){
         ShippingAddress = _shipAddress;
         orderedBy = _customer;
     }

@@ -35,7 +35,8 @@ public class Store{
         }
     }
     public void makeOrder(String _address, Customer _customer){
-        //Do thing
+        var newOrder = new Order(_address, _customer);
+        Orders.add(newOrder);
     }
     public Store() throws IOException {
         var customerFile = "Customers.txt";
