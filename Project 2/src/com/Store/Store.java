@@ -34,7 +34,7 @@ public class Store{
             }
         }
     }
-    public void makeOrder(String _address, String _customer){
+    public void makeOrder(String _address, Customer _customer){
         //Do thing
     }
     public Store() throws IOException {
@@ -77,7 +77,7 @@ public class Store{
                     + "\n2. Make Order \n3. Quit");
             String selection = menuSelect.nextLine();
             switch (selection) {
-                case "1":
+                case "1"://add new customer address
                     var add_menu = true;
                     while (add_menu) {
                         Scanner add_menuSelect = new Scanner(System.in);
@@ -86,13 +86,13 @@ public class Store{
                         _selected_customer.addAddress(newAddress);
                         break;
                     }
-                case "2":
-                    selectCustomer();
+                case "2"://make order for customer
+                    var shipAdd = _selected_customer.getAddress();
+                    makeOrder(shipAdd, _selected_customer);
                     break;
                 case "3":
                     menu = false;
                     break;
-
                 default:
                     throw new IllegalStateException("Unexpected value: " + selection);
             }
