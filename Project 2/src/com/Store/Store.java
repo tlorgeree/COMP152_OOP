@@ -34,7 +34,7 @@ public class Store{
             }
         }
     }
-    public void makeOrder(String _address, Customer _customer){
+    public void makeOrder(ShippingAddress _address, Customer _customer){
         var newOrder = new Order(_address, _customer);
         Orders.add(newOrder);
     }
@@ -79,14 +79,24 @@ public class Store{
             String selection = menuSelect.nextLine();
             switch (selection) {
                 case "1"://add new customer address
-                    var add_menu = true;
-                    while (add_menu) {
-                        Scanner add_menuSelect = new Scanner(System.in);
-                        System.out.println("Please enter the new address:");
-                        String newAddress = add_menuSelect.nextLine();
-                        _selected_customer.addAddress(newAddress);
-                        break;
-                    }
+                    Scanner add_menuSelect_ln1 = new Scanner(System.in);
+                    System.out.println("Please enter the new address line 1:");
+                    String newAddress_ln1 = add_menuSelect_ln1.nextLine();
+                    Scanner add_menuSelect_ln2 = new Scanner(System.in);
+                    System.out.println("Please enter the new address line 2:");
+                    String newAddress_ln2 = add_menuSelect_ln2.nextLine();
+                    Scanner add_menuSelect_city = new Scanner(System.in);
+                    System.out.println("Please enter the City:");
+                    String newAddress_city = add_menuSelect_city.nextLine();
+                    Scanner add_menuSelect_state = new Scanner(System.in);
+                    System.out.println("Please enter the State:");
+                    String newAddress_state = add_menuSelect_state.nextLine();
+                    Scanner add_menuSelect_zip = new Scanner(System.in);
+                    System.out.println("Please enter the Zip Code:");
+                    String newAddress_zip = add_menuSelect_zip.nextLine();
+                    _selected_customer.addAddress(newAddress_ln1, newAddress_ln2, newAddress_city,
+                            newAddress_state, newAddress_zip);
+                    break;
                 case "2"://make order for customer
                     var shipAdd = _selected_customer.getAddress();
                     makeOrder(shipAdd, _selected_customer);
