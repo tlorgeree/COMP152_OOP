@@ -76,6 +76,8 @@ public class Store{
             Scanner menuSelect = new Scanner(System.in);
             System.out.println("Select from the following options:\n1. Add Addressr"
                     + "\n2. Make Order \n3. Quit");
+            //Add address list display
+
             String selection = menuSelect.nextLine();
             switch (selection) {
                 case "1"://add new customer address
