@@ -34,22 +34,33 @@ public class Store{
             }
         }
     }
-    public void makeOrder(ShippingAddress _address, Customer _customer){
+    public void makeOrder(ShippingAddress _address, Customer _customer) {
         var _cart = new ArrayList<merchandiseItem>();
         var menu = true;
         while (menu) {
             Scanner menuSelect = new Scanner(System.in);
             System.out.println("Select from the following items to add to your order:\n1. Shirt"
-                    +"\n2. Can of Whoopass\n3. A Dull Kazoo\n4. Quit");
+                    + "\n2. Can of Whoopass\n3. A Dull Kazoo\n4. Quit");
             String selection = menuSelect.nextLine();
             switch (selection) {
-                case "1" : _cart.add(new merchandiseItem("Shirt",3.50, ItemType.Clothing));break;
-                case "2" : _cart.add(new merchandiseItem("Can of Whoopass",100.00, ItemType.WICFood));break;
-                case "3" : _cart.add(new merchandiseItem("A Dull Kazoo",0.50, ItemType.GeneralMerchandise));break;
-                case "4" :  menu = false; break;
-                default : throw new IllegalStateException("Unexpected value: " + selection); break;
-        Orders.add(new Order(_address, _customer, _cart));
+                case "1":
+                    _cart.add(new merchandiseItem("Shirt", 3.50, ItemType.Clothing));
+                    break;
+                case "2":
+                    _cart.add(new merchandiseItem("Can of Whoopass", 100.00, ItemType.WICFood));
+                    break;
+                case "3":
+                    _cart.add(new merchandiseItem("A Dull Kazoo", 0.50, ItemType.GeneralMerchandise));
+                    break;
+                case "4":
+                    menu = false;
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + selection);
+            }
 
+        }
+        Orders.add(new Order(_address, _customer, _cart));
     }
     public Store() throws IOException {
         var customerFile = "Customers.txt";

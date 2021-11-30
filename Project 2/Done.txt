@@ -1,0 +1,5 @@
+- Completed the Order class update
+- Completed the MerchandiseItem class update
+- Added ItemType
+- Updated Store makeOrder() to add items to cart
+- Need to add rest of Store Class Project Requirements
