@@ -74,7 +74,7 @@ public class Store{
         var menu = true;
         while (menu) {
             Scanner menuSelect = new Scanner(System.in);
-            System.out.println("Select from the following options:\n1. Add Address"
+            System.out.println("Select from the following options:\n1. Add Addressr"
                     + "\n2. Make Order \n3. Quit");
             //Add address list display
 
