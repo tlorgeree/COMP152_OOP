@@ -2,5 +2,6 @@
 - Completed the MerchandiseItem class update
 - Added ItemType
 - Updated Store makeOrder() to add items to cart
-- Need to add rest of Store Class Project Requirements
 - Finished Customer Extended Classes
+- Added customer type selection in addCustomer() in Store
+- Need to add Stock variable for store to manage items in store.

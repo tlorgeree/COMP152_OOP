@@ -74,7 +74,28 @@ public class Store{
         Scanner nameSelect = new Scanner(System.in);
         System.out.println("What is the customer's name?");
         String _custName = nameSelect.nextLine();
-        Customers.add(new BusinessCustomer(_custName));
+        var menu = true;
+        while (menu) {
+            Scanner menuSelect = new Scanner(System.in);
+            System.out.println("Select Customer Type:\n1. Business"
+                    + "\n2. Residential\n3. Tax Exempt\n4. Quit");
+            String selection = menuSelect.nextLine();
+            switch (selection) {
+                case "1": Customers.add(new BusinessCustomer(_custName));
+                    break;
+                case "2": Customers.add(new ResidentialCustomer(_custName));
+                    break;
+                case "3": Customers.add(new TaxExemptCustomer(_custName));
+                    break;
+                case "4":
+                    menu = false;
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + selection);
+            }
+
+        }
+
     }
     public Customer selectCustomer(){
         //Select a customer

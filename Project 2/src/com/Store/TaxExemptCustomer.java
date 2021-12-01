@@ -17,6 +17,6 @@ public class TaxExemptCustomer extends Customer{
 
     @Override
     public void arrangeDelivery(){
-        System.out.println(this.getName() + ",\n\n All deiveries must be 9-5, Mon-Fri.");
+        System.out.println("Please contact " + this.getName() + " on the day of the delivery.");
     }
 }
