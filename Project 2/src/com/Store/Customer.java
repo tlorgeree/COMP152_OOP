@@ -38,8 +38,7 @@ public abstract class Customer{
 
 
     public void arrangeDelivery(){
-        var output = Name + ". Deliver any Time.";
-        return output;
+        System.out.println(Name + ", deliver at any time.");
     }
 
     public double payOutstandingBalance(){

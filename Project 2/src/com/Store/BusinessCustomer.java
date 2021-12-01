@@ -8,7 +8,6 @@ public class BusinessCustomer extends Customer{
         super(_name);
     }
 
-    @Override
     public double PayForOrder(ArrayList<merchandiseItem> _cart) {
         var _name = this.getName();
         var _sum = 0.00;
@@ -32,6 +31,5 @@ public class BusinessCustomer extends Customer{
     public void arrangeDelivery(){
         System.out.println("Dear" + this.getName() + ",\n\n Please note that all" +
                 " deliveries must be Mon-Fri from 9-5. Now please stop having your mother call us.");
-
     }
 }
