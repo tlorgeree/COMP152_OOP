@@ -8,7 +8,7 @@ public class TaxExemptCustomer extends Customer{
     }
 
     @Override
-    public void PayForOrder(ArrayList<merchandiseItem> _cart){
+    public double PayForOrder(ArrayList<merchandiseItem> _cart){
 
     }
 }

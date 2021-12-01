@@ -1,6 +1,5 @@
 package com.Store;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,7 +37,7 @@ public abstract class Customer{
     }
 
 
-    public String arrangeDelivery(){
+    public void arrangeDelivery(){
         var output = Name + ". Deliver any Time.";
         return output;
     }
@@ -47,6 +46,6 @@ public abstract class Customer{
         return 0.0;
     }
 
-    public abstract void PayForOrder(ArrayList<merchandiseItem> _cart);
+    public abstract double PayForOrder(ArrayList<merchandiseItem> _cart);
 
 }

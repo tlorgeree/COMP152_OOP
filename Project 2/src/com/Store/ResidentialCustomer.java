@@ -1,6 +1,5 @@
 package com.Store;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ResidentialCustomer extends Customer{
@@ -9,7 +8,7 @@ public class ResidentialCustomer extends Customer{
     }
 
     @Override
-    public void PayForOrder(ArrayList<merchandiseItem> _cart) {
+    public double PayForOrder(ArrayList<merchandiseItem> _cart) {
 
     }
 }
