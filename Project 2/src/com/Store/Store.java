@@ -11,6 +11,7 @@ import java.nio.file.Paths;
 public class Store{
     private ArrayList<Order> Orders = new ArrayList<Order>();
     private ArrayList<Customer> Customers = new ArrayList<Customer>();
+    private ArrayList<merchandiseItem> Stock = new ArrayList<merchandiseItem>();
     public static void main(String[] args) throws IOException {
         var currStore = new Store();
         currStore.runStore();
