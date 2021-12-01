@@ -1,14 +1,20 @@
 package com.Store;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Customer{
+public abstract class Customer{
     private ArrayList<ShippingAddress> Addresses = new ArrayList<ShippingAddress>();
     private String Name;
     private int accountID;
     private static int customerID;//global
 
+    public Customer(String _name) {
+        Name = _name;//add new customer
+        accountID = customerID;//with unique ID
+        customerID++;
+    }
     public String getName(){
         //Returns the name of the customer
         return Name;
@@ -30,9 +36,17 @@ public class Customer{
         int _int_selAddress = Integer.parseInt(selAddress);
         return Addresses.get(_int_selAddress);
     }
-    public Customer(String _name) {
-        Name = _name;//add new customer
-        accountID = customerID;//with unique ID
-        customerID++;
+
+
+    public String arrangeDelivery(){
+        var output = Name + ". Deliver any Time.";
+        return output;
     }
+
+    public double payOutstandingBalance(){
+        return 0.0;
+    }
+
+    public abstract void PayForOrder(ArrayList<merchandiseItem> _cart);
+
 }

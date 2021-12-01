@@ -3,3 +3,4 @@
 - Added ItemType
 - Updated Store makeOrder() to add items to cart
 - Need to add rest of Store Class Project Requirements
+- Need to Finish Customer Extended Classes

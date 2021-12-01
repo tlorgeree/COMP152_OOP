@@ -67,14 +67,14 @@ public class Store{
         String all_customers = Files.readString(Paths.get(customerFile));
         String[] customerList = all_customers.split(",");
         for (String s : customerList) {
-            Customers.add(new Customer(s));
+            Customers.add(new BusinessCustomer(s));
         }
     }
     public void addCustomer(){
         Scanner nameSelect = new Scanner(System.in);
         System.out.println("What is the customer's name?");
         String _custName = nameSelect.nextLine();
-        Customers.add(new Customer(_custName));
+        Customers.add(new BusinessCustomer(_custName));
     }
     public Customer selectCustomer(){
         //Select a customer
